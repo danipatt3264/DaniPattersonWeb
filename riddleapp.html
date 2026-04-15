@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Riddle Generator</title>
+
+<style>
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f4f5fb;
+        margin: 0;
+        padding: 40px;
+        text-align: center;
+        color: #1f3c88;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    button {
+        background: #1f3c88;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background: #162a5c;
+    }
+
+    #answer {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
+        display: none;
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 30px;
+        color: #1f3c88;
+        text-decoration: none;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>✨ Riddle Generator ✨</h1>
+<p>Click the button to get a random riddle. Try to guess before revealing the answer!</p>
+
+<div class="card">
+    <p id="riddle">Press the button to get a riddle!</p>
+    <p id="answer"></p>
+
+    <button onclick="newRiddle()">New Riddle</button>
+    <button onclick="showAnswer()">Show Answer</button>
+</div>
+
+<a href="portfolio.html">⬅ Back to Portfolio</a>
+
+<script>
+    const riddles = [
+        { q: "What has to be broken before you can use it?", a: "An egg." },
+        { q: "I’m tall when I’m young, and short when I’m old. What am I?", a: "A candle." },
+        { q: "What month has 28 days?", a: "All of them." },
+        { q: "What gets wetter the more it dries?", a: "A towel." },
+        { q: "What has a face and two hands but no arms or legs?", a: "A clock." },
+        { q: "What has a heart that doesn’t beat?", a: "An artichoke." },
+        { q: "What can travel around the world while staying in a corner?", a: "A stamp." }
+    ];
+
+    function newRiddle() {
+        const random = riddles[Math.floor(Math.random() * riddles.length)];
+        document.getElementById("riddle").textContent = random.q;
+        document.getElementById("answer").textContent = random.a;
+        document.getElementById("answer").style.display = "none";
+    }
+
+    function showAnswer() {
+        document.getElementById("answer").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
